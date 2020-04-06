@@ -14,34 +14,28 @@ export default class Board extends React.Component {
     this.handleSubmit.bind();
   }
   
-  handleSubmit = e => {
+  handleSubmit(e) {
     e.preventDefault()
-    this.setState({
-      size: e.currentTarget.value
-    })
   }
 
-  handleChange = field => {
-
-    this.setState({
-      [field] : field.currentTarget.value
+  handleChange(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
     });
   }
 
   render(){
-
     const {size} = this.state;
-  return (
-    <>
-      <form className="board-gen" onSubmit={this.handleSubmit()}>
-        <label htmlFor='boardSize'>
-          Please input board size: <input id='boardSize' onChange={this.handleChange()} type="number" value={size}/>
-        </label>
-        <button type="submit"> Generate New Board </button>
-      </form>
-      <div className='board'>
-        {Checkerboard(size)}
-      </div>
+    return (
+      <>
+        <form className="board-gen" onSubmit={this.handleSubmit}>
+          <label htmlFor='boardSize'>
+            Please input board size: <input id='boardSize' onChange={this.handleChange('size')} type="number" value={size}/>
+          </label>
+        </form>
+        <div className='board'>
+          {Checkerboard(size)}
+        </div>
     </>
   )}
 }
