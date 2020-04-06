@@ -18,6 +18,13 @@ export default class Board extends React.Component {
     e.preventDefault()
   }
 
+  generateBoard() {
+    const {size} = this.state;
+    return (
+      <Checkerboard size={size}/>
+    )
+  }
+
   handleChange(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
