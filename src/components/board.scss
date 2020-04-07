@@ -11,20 +11,21 @@ body, html {
 .App {
   height: 100%;
   margin-top: 5vh;
+  display: grid;
   .board{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     
-    justify-content: flex-start;
     margin-top: 5vh;
     margin-left: 25vw;
     margin-right: 25vw;
     div {
       &.grid{
         border: 2px solid black;
-        // margin: auto;
         height: 50px;
         width: 50px;
+        
         &.black {
           background-color: black;
         }

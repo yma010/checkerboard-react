@@ -18,7 +18,7 @@ export default class Board extends React.Component {
     e.preventDefault()
   }
 
-  generateBoard() {
+  generateBoard() { 
     const {size} = this.state;
     return (
       <Checkerboard size={size}/>
